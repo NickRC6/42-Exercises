@@ -1,7 +1,7 @@
 #include <unistd.h>
 
-void ft_putchar(char c) 
+void ft_putchar(char q) 
 {
-	write(1, &c, 1); 
+	write(1, &q, 1); 
 }
 

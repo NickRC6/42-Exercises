@@ -1,6 +1,6 @@
 #include "ft_putchar.c"
 
-void ft_putchar(char c); 
+void ft_putchar(char q); 
 
 int main(void)
 {
