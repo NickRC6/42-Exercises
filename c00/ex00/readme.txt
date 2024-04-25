@@ -12,3 +12,7 @@ It defines the function ft_putchar (lines 3-6). This function takes a single cha
 In this case, write(1, &c, 1); writes the character c to standard output (file descriptor 1) with a buffer of size 1.
 
 Overall, when the main program is executed, it will call the ft_putchar function with the character 'Z'. This function will then write the character 'Z' to the standard output. So, when you run this code, it will simply print the character 'Z' to the console.
+
+In this example, char is the data type, and q is the variable name. When this function is called, it expects to receive a char value, which will be stored in the variable q for use within the function's body.
+
+So, whenever you declare a function parameter in C, you should always include both the data type and the variable name.
