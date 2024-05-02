@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_is_numeric.c                                :+:      :+:    :+:   */
+/*   ft_strlowcase.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nriera-c <nriera-c@student.42barcel>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/05/02 13:18:21 by nriera-c          #+#    #+#             */
-/*   Updated: 2024/05/02 13:20:36 by nriera-c         ###   ########.fr       */
+/*   Created: 2024/05/02 13:13:07 by nriera-c          #+#    #+#             */
+/*   Updated: 2024/05/02 13:13:09 by nriera-c         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_str_is_numeric(char *str)
+char	*ft_strlowcase(char *str)
 {
 	int	i;
 
 	i = 0;
 	while (str[i] != '\0')
 	{
-		if (!(str[i] >= '0' && str[i] <= '9'))
+		if (str[i] >= 'A' && str[i] <= 'Z')
 		{
-			return (0);
+			str[i] = str[i] + 32;
 		}
 		i++;
 	}
-	return (1);
+	return (str);
 }

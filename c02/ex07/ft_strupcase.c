@@ -1,13 +1,27 @@
-int ft_strupcase(char *str) 
-{
-    int i = 0;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_strupcase.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nriera-c <nriera-c@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/02 13:11:43 by nriera-c          #+#    #+#             */
+/*   Updated: 2024/05/02 13:12:34 by nriera-c         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-    while (str[i] != '\0')
-    {
-        if (!(str[i] >= 'A' && str[i] <= 'Z') && !(str[i] >= '0' && str[i] <= '9')) {  //!!!! I need to create a function that replaces minus to mayus
-            return 0; 
-        }
-        i++;
-    }
-    return 1; 
+char	*ft_strupcase(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] >= 'a' && str[i] <= 'z')
+		{
+			str[i] = str[i] - 32;
+		}
+		i++;
+	}
+	return (str);
 }

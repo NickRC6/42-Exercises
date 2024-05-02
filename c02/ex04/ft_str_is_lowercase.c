@@ -1,13 +1,27 @@
-int ft_str_is_lowercase(char *str) 
-{
-    int i = 0;
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_str_is_lowercase.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nriera-c <nriera-c@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/02 13:14:20 by nriera-c          #+#    #+#             */
+/*   Updated: 2024/05/02 13:17:49 by nriera-c         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-    while (str[i] != '\0')
-    {
-        if ((!(str[i] >= 'a' && str[i] <= 'z'))) {
-            return 0; 
-        }
-        i++;
-    }
-    return 1; 
+int	ft_str_is_lowercase(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if ((!(str[i] >= 'a' && str[i] <= 'z')))
+		{
+			return (0);
+		}
+		i++;
+	}
+	return (1);
 }
