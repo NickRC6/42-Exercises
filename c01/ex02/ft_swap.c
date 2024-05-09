@@ -21,4 +21,8 @@ void	ft_swap(int *a, int *b)
     o = *b;
     *a = o;
     *b = i;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 1a3191a00d7c1c3a5e3e2a5de679901f6bf0ba97
