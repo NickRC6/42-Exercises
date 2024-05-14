@@ -9,7 +9,8 @@
 /*   Updated: 2024/05/14 17:53:40 by zqiu             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-#include "BSQ.h"
+
+#include "../includes/BSQ.h"
 #include <stdio.h>
 #include <stdlib.h>
 

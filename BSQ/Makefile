@@ -4,7 +4,7 @@ CC = gcc
 
 CFLAGS = -Wall -Wextra -Werrors
 
-SRC = find_largest_square.c print_map.c read_map.c main.c
+SRC = ./src/find_largest_square.c ./src/print_map.c ./src/read_map.c ./src/main.c
 
 all: $(NAME)
 

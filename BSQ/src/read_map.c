@@ -1,4 +1,4 @@
-#include "BSQ.h"
+#include "../includes/BSQ.h"
 
 Map* read_map(const char *file) {
     FILE *fp = fopen(file, "r");

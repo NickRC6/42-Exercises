@@ -1,4 +1,4 @@
-#include "BSQ.h"
+#include "../includes/BSQ.h"
 
 void find_largest_square(Map *map) {
     int max_size = 0;

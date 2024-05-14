@@ -1,3 +1,4 @@
+#include "../includes/BSQ.h"
 
 int		ft_strlen(char *str)
 {
