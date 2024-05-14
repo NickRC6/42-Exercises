@@ -1,42 +1,71 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   find_largest_square.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nriera-c <nriera-c@student.42barcel>       +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/05/14 19:36:45 by nriera-c          #+#    #+#             */
+/*   Updated: 2024/05/14 19:36:54 by nriera-c         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/BSQ.h"
 
 void find_largest_square(Map *map) {
-    int max_size = 0;
-    int max_x = 0;
-    int max_y = 0;
+	int max_size;
+	int max_x;
+	int max_y;
+	int size;
+	int valid;
+	int y;
+	int x;
+	int j;
+	int i;
 
-    for (int y = 0; y < map->lines; y++) {
-        for (int x = 0; x < map->lines; x++) {
-            if (map->data[y][x] == map->empty) {
-                int size = 0;
-                while (y + size < map->lines && x + size < map->lines) {
-                    int valid = 1;
-                    for (int i = y; i <= y + size; i++) {
-                        for (int j = x; j <= x + size; j++) {
-                            if (map->data[i][j] == map->obstacle) {
-                                valid = 0;
-                                break;
-                            }
-                        }
-                        if (!valid) break;
-                    }
-                    if (valid) size++;
-                    else break;
-                }
+	max_size = 0;
+	max_x = 0;
+	max_y = 0;
+	size = 0;
+	valid = 0;
+	y = 0;
+	x = 0;
+	j = 0;
+	i = 0;
+	
 
-                if (size > max_size) {
-                    max_size = size;
-                    max_x = x;
-                    max_y = y;
-                }
-            }
-        }
-    }
+	while (y < map->lines) {
+		x = 0;
+		while (x < map->lines) {
+			if (map->data[y][x] == map->empty) {
+				size = 0;
+				while (y + size < map->lines && x + size < map->lines) {
+					valid = 1;
+					i = y;
+					while (i <= y + size) {
+						j = x;
+						while (j <= x + size) {
+							if (map->data[i][j] == map->obstacle) {
+								valid = 0;
+								break;
+							}
+							j++;
+						}
+						if (!valid) break;
+						i++;
+					}
+					if (valid) size++;
+					else break;
+				}
 
-    // Mark the largest square found
-    for (int i = max_y; i < max_y + max_size; i++) {
-        for (int j = max_x; j < max_x + max_size; j++) {
-            map->data[i][j] = map->full;
-        }
-    }
+				if (size > max_size) {
+					max_size = size;
+					max_x = x;
+					max_y = y;
+				}
+			}
+			x++;
+		}
+		y++;
+	}
 }
