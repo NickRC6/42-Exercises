@@ -16,12 +16,14 @@ typedef struct {
 } Map;
 
 // Function to read the map from a file
-Map* read_map(const char *file);
+Map *read_map(const char *file);
 
 // Function to print the map
-void print_map(const Map *map);
+void    ft_putstr(char *str);
+void    print_map(const Map *map);
+int     print_error(int error);
 
 // Function to find the largest square
-void find_largest_square(Map *map);
+void    find_largest_square(Map *map);
 
 #endif

@@ -14,28 +14,31 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-int main(int argc, char **argv) {
-    // Check if correct number of arguments is provided
-    if (argc < 2) {
-        printf("Usage: %s <input_file>\n", argv[0]);
+int main(int argc, char **argv) 
+{
+    int i;
+    int j;
+
+    if (argc < 2) 
+    {
+        print_error(4);
         return EXIT_FAILURE;
     }
-
-    // Read the map from the input file
-    Map *map = read_map(argv[1]);
-
-    // Find the largest square on the map
-    find_largest_square(map);
-
-    // Print the updated map
-    print_map(map);
-
-    // Free allocated memory
-    for (int i = 0; i < map->lines; i++) {
-        free(map->data[i]);
+    i = 0;
+    while (i < argc)
+    {
+        Map *map = read_map(argv[i]);
+        find_largest_square(map);
+        print_map(map);
+        j = 0;
+        while (j < map->lines) 
+        {
+            free(map->data[j]);
+            j++;
+        }
+        free(map->data);
+        free(map);
+        i++;
     }
-    free(map->data);
-    free(map);
-
     return EXIT_SUCCESS;
 }

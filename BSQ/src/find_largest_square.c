@@ -12,7 +12,8 @@
 
 #include "../includes/BSQ.h"
 
-void find_largest_square(Map *map) {
+void find_largest_square(Map *map) 
+{
 	int max_size;
 	int max_x;
 	int max_y;
@@ -27,45 +28,64 @@ void find_largest_square(Map *map) {
 	max_x = 0;
 	max_y = 0;
 	size = 0;
-	valid = 0;
 	y = 0;
-	x = 0;
-	j = 0;
-	i = 0;
-	
 
-	while (y < map->lines) {
+
+    while(y < map->lines) 
+	{
 		x = 0;
-		while (x < map->lines) {
-			if (map->data[y][x] == map->empty) {
-				size = 0;
-				while (y + size < map->lines && x + size < map->lines) {
-					valid = 1;
+        while (x < map->lines) 
+		{
+            if (map->data[y][x] == map->empty)
+			{
+                size = 0;
+                while (y + size < map->lines && x + size < map->lines) 
+				{
+                    valid = 1;
 					i = y;
-					while (i <= y + size) {
+                    while (i <= y + size) 
+					{
 						j = x;
-						while (j <= x + size) {
-							if (map->data[i][j] == map->obstacle) {
-								valid = 0;
-								break;
-							}
+                        while (j <= x + size) 
+						{
+                            if (map->data[i][j] == map->obstacle) 
+							{
+                                valid = 0;
+                                break;
+                            }
 							j++;
-						}
-						if (!valid) break;
+                        }
+                        if (!valid) 
+							break;
 						i++;
-					}
-					if (valid) size++;
-					else break;
-				}
+                    }
+                    if (valid) 
+						size++;
+                    else 
+						break;
+                }
 
-				if (size > max_size) {
-					max_size = size;
-					max_x = x;
-					max_y = y;
-				}
-			}
+                if (size > max_size) {
+                    max_size = size;
+                    max_x = x;
+                    max_y = y;
+                }
+            }
 			x++;
-		}
+        }
 		y++;
-	}
+    }
+
+    // Mark the largest square found
+	i = max_y;
+    while (i < max_y + max_size) 
+	{
+		j = max_x;
+        while (j < max_x + max_size) 
+		{
+            map->data[i][j] = map->full;
+			j++;
+        }
+		i++;
+    }
 }
