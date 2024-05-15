@@ -7,7 +7,8 @@
 # include <stdbool.h>
 # include <fcntl.h>
 
-typedef struct {
+typedef struct 
+{
     int lines;
     char empty;
     char obstacle;
@@ -17,7 +18,7 @@ typedef struct {
 
 // Function to read the map from a file
 Map *read_map(const char *file);
-
+Map* read_map_from_stdin();
 // Function to print the map
 void    ft_putstr(char *str);
 void    print_map(const Map *map);

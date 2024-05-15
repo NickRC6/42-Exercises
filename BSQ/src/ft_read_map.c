@@ -25,7 +25,7 @@ Map* read_map(const char *file)
 	fd = open(file, O_RDONLY);
     if (fd < 0) 
 	{
-        ft_putstr("Error opening file\n");
+        print_error(1);
         exit(EXIT_FAILURE);
     }
 
@@ -34,7 +34,7 @@ Map* read_map(const char *file)
     if (!map) 
 	{
         close(fd);
-        ft_putstr("Memory allocation failed\n");
+        print_error(2);
         exit(EXIT_FAILURE);
     }
 
@@ -68,7 +68,7 @@ Map* read_map(const char *file)
 	{
         close(fd);
         free(map);
-        ft_putstr("Memory allocation failed\n");
+        print_error(2);
         exit(EXIT_FAILURE);
     }
 
@@ -82,7 +82,7 @@ Map* read_map(const char *file)
             close(fd);
             free(map->data);
             free(map);
-            ft_putstr("Memory allocation failed\n");
+            print_error(2);
             exit(EXIT_FAILURE);
         }
         j = 0;
@@ -93,12 +93,12 @@ Map* read_map(const char *file)
                 close(fd);
                 free(map->data);
                 free(map);
-                ft_putstr("Error reading map data\n");
+                print_error(3);
                 exit(EXIT_FAILURE);
             }
             if (ch != map->empty && ch != map->obstacle && ch != map->full) 
             {
-                ft_putstr("Unexpected character found in map data: ");
+                print_error(5);
                 ft_putstr(&ch);
                 ft_putstr("\n");
                 exit(EXIT_FAILURE);
@@ -112,7 +112,6 @@ Map* read_map(const char *file)
         map->data[i][j] = '\0'; 
 		i++;
     }
-
     close(fd);
     return map;
 }

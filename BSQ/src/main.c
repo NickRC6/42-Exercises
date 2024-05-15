@@ -18,16 +18,21 @@ int main(int argc, char **argv)
 {
     int i;
     int j;
-
+    Map *map;
+    
     if (argc < 2) 
     {
-        print_error(4);
-        return EXIT_FAILURE;
+        map = read_map_from_stdin();
+        find_largest_square(map);
+        ft_putstr("\n");
+        print_map(map);
+        free(map->data);
+        free(map);
     }
     i = 0;
     while (i < argc)
     {
-        Map *map = read_map(argv[i]);
+        map = read_map(argv[i]);
         find_largest_square(map);
         print_map(map);
         j = 0;
