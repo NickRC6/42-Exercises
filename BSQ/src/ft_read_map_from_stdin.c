@@ -12,9 +12,9 @@
 
 #include "../includes/BSQ.h"
 
-Map* create_map(int lines, char empty, char obstacle, char full, char** data) 
+t_Map* create_map(int lines, char empty, char obstacle, char full, char** data) 
 {
-    Map *map = malloc(sizeof(Map));
+    t_Map *map = malloc(sizeof(t_Map));
     if (!map) 
 	{
         ft_putstr("Memory allocation failed");
@@ -64,7 +64,7 @@ char** read_map_data_from_stdin(int lines, char empty, char obstacle, char full)
     return data;
 }
 
-Map* read_map_from_stdin() 
+t_Map* read_map_from_stdin() 
 {
     char param_buf[100];
     int param_count = 0;
@@ -94,4 +94,5 @@ Map* read_map_from_stdin()
 
     return create_map(lines, empty, obstacle, full, read_map_data_from_stdin(lines, empty, obstacle, full));
 }
+
 
